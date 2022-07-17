@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="navbar" style="background-color:black">
+        <p class="navbar-brand" style="color:white"> Book Recommender</p>
+        <ul class="nav navbar-nav" style="margin-left:70rem; font-size: 18px;">
+            <li><a style="color:white;" href="/">Home</a></li>
+            <li><a style="color:white;" href="/recommend">Recommend</a></li>
+            <li><a style="color:white;" >Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <center><h1 style="
+                    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                    color: #280202;
+                    font-weight: bold;
+                    margin-top: 30px;
+                    text-shadow: #000000 0px 0px 13px;
+                ">Book Recommendation System</h1></center>
+                <form action="/recommend_books" method="post" style="text-align:center;">
+                    <input name="user_input" type="text" class="form-control" placeholder="Enter Book Name" style="color: #181818; width:60%; margin-left:250px; margin-top:7rem;"><br>
+                    <input type="submit" class="btn btn=lg btn-warning" style="background-color: #e50914;text-align: center;border-color: #e50914;width:120px;">
+                </form>
+            </div>  
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Popular Books</h1>
+        </div>
+    {% for i in range(book_name|length) %}
+        <div class="col-md-3" style="margin-top:30px;">
+            <div class="card">
+                <div class="card-body" style="height:360px; background-color: aliceblue;">
+                    <img src="{{ image[i] }}" style="width:15rem; height:20rem; margin-left:20px;">
+                    <h4 style="margin-left:20px;"><b>{{book_name[i] }}</b></h4>
+                    <p  style="margin-left:20px;"><b>Author-</b> {{author[i] }}</p>
+                    <p  style="margin-left:20px;"><b>Votes-</b> {{votes[i] }}</p>
+                    <p  style="margin-left:20px;"><b>Rating-</b> {{rating[i]}}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+        
+    
+</div>
+</body>
+</html>
