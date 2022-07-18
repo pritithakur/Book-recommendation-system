@@ -27,7 +27,20 @@ def recommend_ui():
 
 def recommend():
     user_input = request.form.get('user_input')
+    match = np.where(st.index==user_input) 
+   
+    if len(match[0])==0:
+        return render_template('error.html')
+    else:
+        print("Found")
+        
+        
+        
     index = np.where(st.index==user_input)[0][0]
+
+        
+    
+    
     
     #return a sorted list of similar book i.e 0 with other books ...key lamba will sort similarity with reverse order#and top will return maximum 5 similar boooks
     similar_items = sorted(list(enumerate(similarity_scores[index])),key=lambda x:x[1],reverse=True)[0:6]
